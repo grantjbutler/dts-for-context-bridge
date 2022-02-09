@@ -47,6 +47,12 @@ test('Should parse api type from external module', () => {
 })
 
 
+test('Should parse function return type inline', () => {
+  project.createSourceFile('./function.ts', `interface Thing { property: string }; export function getThing(): Thing { return { property: 'string' } }`);
+  assert.is(parseCallExpressionFromCode(`import {getThing} from './function'; expose('k', getThing)`).api, `() => Thing`)
+})
+
+
 test('Should parse single JSDoc before call expression', () => {
   const commentRows = [
     'Description',

@@ -44,8 +44,7 @@ export function getDataFromCallExpression(expression) {
     .getType()
     .getText(
       null,
-      TypeFormatFlags.UseFullyQualifiedType
-      | TypeFormatFlags.NoTruncation
+      TypeFormatFlags.NoTruncation
       | TypeFormatFlags.UseSingleQuotesForStringLiteralType
     )
 
